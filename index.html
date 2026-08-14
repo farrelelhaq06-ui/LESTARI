@@ -1179,154 +1179,203 @@
 
         <!-- Slide 10: Struktur Organisasi -->
         <section class="slide" id="slide-10">
-            <!-- Floating Coffee Beans and Leaves (SVGs) -->
-            <!-- Leaf 1 (Top Right) -->
+            <!-- Floating Decorative Elements -->
             <div class="slide10-decor float-slow blur-low" style="top: 8%; right: 8%; width: 55px; height: 55px;">
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <defs><linearGradient id="orgLeaf1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2ecc71"/><stop offset="100%" stop-color="#145a2e"/></linearGradient></defs>
                     <path d="M50 10 C 80 30, 78 68, 50 90 C 22 68, 20 30, 50 10 Z" fill="url(#orgLeaf1)" opacity="0.4" />
                     <path d="M50 10 L 50 90" fill="none" stroke="#0d3318" stroke-width="3" opacity="0.6" />
-                    <path d="M50 35 Q 60 40 70 35" fill="none" stroke="#0d3318" stroke-width="1.5" opacity="0.4" />
-                    <path d="M50 55 Q 38 48 28 55" fill="none" stroke="#0d3318" stroke-width="1.5" opacity="0.4" />
                 </svg>
             </div>
-            <!-- Coffee Bean 1 (Bottom Left) -->
             <div class="slide10-decor float-medium blur-med" style="bottom: 12%; left: 8%; width: 48px; height: 48px;">
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <defs><linearGradient id="orgBean1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#8B6914"/></linearGradient></defs>
                     <path d="M50 12 C 78 12, 88 38, 82 62 C 76 82, 60 90, 50 90 C 40 90, 24 82, 18 62 C 12 38, 22 12, 50 12 Z" fill="url(#orgBean1)" opacity="0.35" />
-                    <path d="M50 15 Q 38 45, 50 50 T 62 88" fill="none" stroke="#2C1A10" stroke-width="3" opacity="0.5" />
                 </svg>
             </div>
-            <!-- Leaf 2 (Middle Left) -->
-            <div class="slide10-decor float-slow blur-low" style="top: 45%; left: 3%; width: 42px; height: 42px; animation-delay: -3s;">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 15 C 78 28, 75 65, 50 85 C 25 65, 22 28, 50 15 Z" fill="#27ae60" opacity="0.3" />
-                    <path d="M50 18 L 50 82" fill="none" stroke="#145a2e" stroke-width="2" opacity="0.5" />
-                </svg>
-            </div>
-            <!-- Coffee Bean 2 (Top Left) -->
-            <div class="slide10-decor float-medium blur-med" style="top: 15%; left: 12%; width: 38px; height: 38px; animation-delay: -5s;">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 15 C 75 15, 85 35, 80 60 C 75 80, 60 88, 50 88 C 40 88, 25 80, 20 60 C 15 35, 25 15, 50 15 Z" fill="#C0A060" opacity="0.25" />
-                    <path d="M50 18 Q 42 42, 50 52 T 58 85" fill="none" stroke="#3C2A15" stroke-width="2.5" opacity="0.4" />
-                </svg>
-            </div>
-            <!-- Leaf 3 (Bottom Right) -->
             <div class="slide10-decor float-slow blur-low" style="bottom: 18%; right: 5%; width: 50px; height: 50px; animation-delay: -7s;">
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <path d="M50 12 C 82 32, 78 70, 50 88 C 22 70, 18 32, 50 12 Z" fill="#1abc9c" opacity="0.25" />
-                    <path d="M50 15 L 50 85" fill="none" stroke="#0e4a3a" stroke-width="2" opacity="0.4" />
-                </svg>
-            </div>
-            <!-- Coffee Bean 3 (Right Mid) -->
-            <div class="slide10-decor float-medium blur-low" style="top: 65%; right: 12%; width: 35px; height: 35px; animation-delay: -2s;">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 15 C 72 15, 82 38, 78 58 C 72 78, 58 85, 50 85 C 42 85, 28 78, 22 58 C 18 38, 28 15, 50 15 Z" fill="#B8962E" opacity="0.2" />
-                    <path d="M50 18 Q 44 40, 50 50 T 56 82" fill="none" stroke="#2C1A10" stroke-width="2" opacity="0.3" />
                 </svg>
             </div>
 
             <!-- Ambient Glow Background -->
             <div class="org-ambient-glow"></div>
 
-            <div class="content-wrapper">
-                <div class="konsep-header">
-                    <h1 class="title">STRUKTUR ORGANISASI</h1>
-                    <p class="org-subtitle">Klik tombol untuk membuka detail setiap jabatan</p>
+            <div class="org-slide-layout">
+                <div class="konsep-header" style="text-align: center; margin-bottom: 10px;">
+                    <h1 class="title" style="font-size: 2.4rem;">STRUKTUR ORGANISASI</h1>
+                    <p class="org-subtitle">Klik setiap jabatan untuk melihat detail peran & tanggung jawab</p>
                 </div>
 
-                <div class="org-container">
-                    <!-- Top Level: Direktur Utama -->
-                    <div class="org-row top-row">
-                        <div class="org-card locked" id="org-card-ceo" data-role="ceo">
-                            <div class="org-card-glow"></div>
-                            <div class="org-lock-overlay">
-                                <button class="org-unlock-btn" data-role="ceo">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    Buka Detail Direktur
-                                </button>
+                <div class="org-main-grid">
+                    <!-- Left: Org Chart Visual -->
+                    <div class="org-chart-visual">
+                        <!-- CEO Card (Top) -->
+                        <div class="org-v2-card" data-org-role="ceo">
+                            <div class="org-v2-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
                             </div>
-                            <div class="org-card-inner">
-                                <div class="org-icon-container">
-                                    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                        <circle cx="12" cy="7" r="4" />
-                                    </svg>
-                                </div>
-                                <h3 class="role-title">Direktur Utama</h3>
-                                <p class="role-desc">Bertanggung jawab penuh atas visi, misi, dan arah pengembangan usaha, serta mengambil keputusan strategis tertinggi.</p>
-                                <div class="role-skills">
-                                    <span class="skill-tag">Kepemimpinan</span>
-                                    <span class="skill-tag">Strategi</span>
-                                    <span class="skill-tag">Visi</span>
-                                </div>
-                                <span class="role-status">⚡ Pimpinan Utama</span>
+                            <div class="org-v2-info">
+                                <h3 class="org-v2-title">Direktur Utama</h3>
+                                <span class="org-v2-badge">👑 Pimpinan</span>
                             </div>
+                            <div class="org-v2-pulse"></div>
                         </div>
-                    </div>
 
-                    <!-- Connecting Lines SVG -->
-                    <div class="org-svg-lines">
-                        <svg width="100%" height="85" viewBox="0 0 600 85" preserveAspectRatio="none">
-                            <path d="M 300 0 L 300 42 M 300 42 L 150 42 L 150 85 M 300 42 L 450 42 L 450 85" 
-                                  fill="none" stroke="rgba(212, 175, 55, 0.2)" stroke-width="3" id="org-connection-line" />
-                        </svg>
-                    </div>
+                        <!-- Connection Lines -->
+                        <div class="org-v2-lines">
+                            <svg width="100%" height="50" viewBox="0 0 400 50" preserveAspectRatio="none">
+                                <path d="M 200 0 L 200 25 M 200 25 L 100 25 L 100 50 M 200 25 L 300 25 L 300 50" 
+                                      fill="none" stroke="rgba(212, 175, 55, 0.3)" stroke-width="2" stroke-dasharray="6 4" id="org-connection-line" />
+                            </svg>
+                        </div>
 
-                    <!-- Bottom Level: Managers -->
-                    <div class="org-row bottom-row">
-                        <!-- Left Manager -->
-                        <div class="org-card locked" id="org-card-ops" data-role="ops">
-                            <div class="org-card-glow"></div>
-                            <div class="org-lock-overlay">
-                                <button class="org-unlock-btn" data-role="ops">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    Buka Detail Operasional
-                                </button>
-                            </div>
-                            <div class="org-card-inner">
-                                <div class="org-icon-container">
-                                    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <!-- Bottom Row: 2 Managers -->
+                        <div class="org-v2-bottom-row">
+                            <div class="org-v2-card" data-org-role="ops">
+                                <div class="org-v2-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="3" />
                                         <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
                                     </svg>
                                 </div>
-                                <h3 class="role-title">Manajer Operasional</h3>
-                                <p class="role-desc">Mengelola kelancaran kegiatan operasional harian, mengatur rantai produksi jamu, dan mengontrol stok bahan baku secara efisien.</p>
-                                <div class="role-skills">
-                                    <span class="skill-tag">Produksi</span>
-                                    <span class="skill-tag">Stok</span>
-                                    <span class="skill-tag">QC</span>
+                                <div class="org-v2-info">
+                                    <h3 class="org-v2-title">Manajer Operasional</h3>
+                                    <span class="org-v2-badge">⚙️ Operasional</span>
                                 </div>
-                                <span class="role-status">⚡ Divisi Operasional</span>
+                                <div class="org-v2-pulse"></div>
                             </div>
-                        </div>
 
-                        <!-- Right Manager -->
-                        <div class="org-card locked" id="org-card-fin" data-role="fin">
-                            <div class="org-card-glow"></div>
-                            <div class="org-lock-overlay">
-                                <button class="org-unlock-btn" data-role="fin">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    Buka Detail Keuangan
-                                </button>
-                            </div>
-                            <div class="org-card-inner">
-                                <div class="org-icon-container">
-                                    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <div class="org-v2-card" data-org-role="fin">
+                                <div class="org-v2-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="2" y="4" width="20" height="16" rx="2" ry="2" />
                                         <line x1="12" y1="18" x2="12" y2="6" />
                                     </svg>
                                 </div>
-                                <h3 class="role-title">Manajer Keuangan</h3>
-                                <p class="role-desc">Mencatat seluruh arus kas masuk-keluar, menyusun laporan laba-rugi, dan mengelola administrasi serta gaji karyawan.</p>
-                                <div class="role-skills">
-                                    <span class="skill-tag">Keuangan</span>
-                                    <span class="skill-tag">Laporan</span>
-                                    <span class="skill-tag">Admin</span>
+                                <div class="org-v2-info">
+                                    <h3 class="org-v2-title">Manajer Keuangan</h3>
+                                    <span class="org-v2-badge">💰 Finansial</span>
                                 </div>
-                                <span class="role-status">⚡ Divisi Finansial</span>
+                                <div class="org-v2-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Detail Panel (changes on click) -->
+                    <div class="org-detail-panel" id="org-detail-panel">
+                        <!-- Default State -->
+                        <div class="org-detail-content active" id="org-detail-default">
+                            <div class="org-detail-empty">
+                                <div class="org-detail-empty-icon">👈</div>
+                                <h3>Pilih Jabatan</h3>
+                                <p>Klik salah satu kartu jabatan di sebelah kiri untuk melihat detail peran, tanggung jawab, dan keahlian yang dibutuhkan.</p>
+                            </div>
+                        </div>
+
+                        <!-- CEO Detail -->
+                        <div class="org-detail-content" id="org-detail-ceo">
+                            <div class="org-detail-header">
+                                <div class="org-detail-avatar">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3>Direktur Utama</h3>
+                                    <span class="org-detail-status">👑 Pimpinan Utama</span>
+                                </div>
+                            </div>
+                            <div class="org-detail-body">
+                                <p class="org-detail-desc">Bertanggung jawab penuh atas visi, misi, dan arah pengembangan usaha, serta mengambil keputusan strategis tertinggi.</p>
+                                <div class="org-detail-tasks">
+                                    <h4>Tugas Utama</h4>
+                                    <ul>
+                                        <li>Menetapkan visi & misi perusahaan</li>
+                                        <li>Mengambil keputusan strategis</li>
+                                        <li>Mengelola hubungan investor & mitra</li>
+                                        <li>Evaluasi kinerja keseluruhan</li>
+                                    </ul>
+                                </div>
+                                <div class="org-detail-skills">
+                                    <span class="org-skill-pill">Kepemimpinan</span>
+                                    <span class="org-skill-pill">Strategi</span>
+                                    <span class="org-skill-pill">Visi</span>
+                                    <span class="org-skill-pill">Networking</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ops Detail -->
+                        <div class="org-detail-content" id="org-detail-ops">
+                            <div class="org-detail-header">
+                                <div class="org-detail-avatar">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3" />
+                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3>Manajer Operasional</h3>
+                                    <span class="org-detail-status">⚙️ Divisi Operasional</span>
+                                </div>
+                            </div>
+                            <div class="org-detail-body">
+                                <p class="org-detail-desc">Mengelola kelancaran kegiatan operasional harian, mengatur rantai produksi jamu, dan mengontrol stok bahan baku secara efisien.</p>
+                                <div class="org-detail-tasks">
+                                    <h4>Tugas Utama</h4>
+                                    <ul>
+                                        <li>Mengawasi proses produksi harian</li>
+                                        <li>Mengatur rantai pasokan bahan baku</li>
+                                        <li>Quality control produk</li>
+                                        <li>Manajemen stok & inventaris</li>
+                                    </ul>
+                                </div>
+                                <div class="org-detail-skills">
+                                    <span class="org-skill-pill">Produksi</span>
+                                    <span class="org-skill-pill">Stok</span>
+                                    <span class="org-skill-pill">QC</span>
+                                    <span class="org-skill-pill">Supply Chain</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finance Detail -->
+                        <div class="org-detail-content" id="org-detail-fin">
+                            <div class="org-detail-header">
+                                <div class="org-detail-avatar">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="4" width="20" height="16" rx="2" ry="2" />
+                                        <line x1="12" y1="18" x2="12" y2="6" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3>Manajer Keuangan</h3>
+                                    <span class="org-detail-status">💰 Divisi Finansial</span>
+                                </div>
+                            </div>
+                            <div class="org-detail-body">
+                                <p class="org-detail-desc">Mencatat seluruh arus kas masuk-keluar, menyusun laporan laba-rugi, dan mengelola administrasi serta gaji karyawan.</p>
+                                <div class="org-detail-tasks">
+                                    <h4>Tugas Utama</h4>
+                                    <ul>
+                                        <li>Pencatatan arus kas masuk/keluar</li>
+                                        <li>Penyusunan laporan laba-rugi</li>
+                                        <li>Administrasi & payroll</li>
+                                        <li>Perencanaan anggaran & budgeting</li>
+                                    </ul>
+                                </div>
+                                <div class="org-detail-skills">
+                                    <span class="org-skill-pill">Keuangan</span>
+                                    <span class="org-skill-pill">Laporan</span>
+                                    <span class="org-skill-pill">Admin</span>
+                                    <span class="org-skill-pill">Budgeting</span>
+                                </div>
                             </div>
                         </div>
                     </div>

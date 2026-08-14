@@ -421,19 +421,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Slide 10: Struktur Organisasi Interactive Redesign Logic
     // ============================================
-    // Slide 10: Struktur Organisasi Unlock Logic
-    // ============================================
-    const orgUnlockBtns = document.querySelectorAll('.org-unlock-btn');
+    const orgCards = document.querySelectorAll('.org-v2-card');
+    const orgDetailContents = document.querySelectorAll('.org-detail-content');
 
-    // Glowing particle explosion effect
-    const createGlowParticles = (x, y) => {
+    // Glowing particle explosion effect helper
+    const createOrgGlowParticles = (x, y) => {
         const colors = ['#D4AF37', '#FFD700', '#FFA500', '#FFEC8B', '#2ecc71', '#fff'];
-        const particleCount = 35;
+        const particleCount = 20;
         for (let i = 0; i < particleCount; i++) {
             const p = document.createElement('div');
             p.className = 'glow-particle';
-            const size = 3 + Math.random() * 8;
+            const size = 3 + Math.random() * 6;
             p.style.width = size + 'px';
             p.style.height = size + 'px';
 
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
             p.style.top = y + 'px';
 
             const angle = Math.random() * Math.PI * 2;
-            const velocity = 60 + Math.random() * 140;
+            const velocity = 40 + Math.random() * 80;
             const dx = Math.cos(angle) * velocity;
             const dy = Math.sin(angle) * velocity;
             p.style.setProperty('--dx', `${dx}px`);
@@ -454,99 +454,33 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(p);
             setTimeout(() => p.remove(), 1300);
         }
-
-        // Secondary ring burst - large fading circle
-        const ring = document.createElement('div');
-        ring.style.cssText = `
-            position: fixed; left: ${x}px; top: ${y}px;
-            width: 10px; height: 10px;
-            border: 2px solid rgba(212, 175, 55, 0.7);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10001;
-            transform: translate(-50%, -50%) scale(1);
-            animation: orgRingBurst 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-        `;
-        document.body.appendChild(ring);
-        setTimeout(() => ring.remove(), 900);
-
-        // Flash overlay on the card area
-        const flash = document.createElement('div');
-        flash.style.cssText = `
-            position: fixed; left: ${x - 100}px; top: ${y - 100}px;
-            width: 200px; height: 200px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.4), transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            animation: orgFlashFade 0.6s ease-out forwards;
-        `;
-        document.body.appendChild(flash);
-        setTimeout(() => flash.remove(), 700);
     };
 
-    // Inject keyframe animations for ring burst and flash
-    if (!document.getElementById('org-dynamic-keyframes')) {
-        const styleSheet = document.createElement('style');
-        styleSheet.id = 'org-dynamic-keyframes';
-        styleSheet.textContent = `
-            @keyframes orgRingBurst {
-                0% { transform: translate(-50%, -50%) scale(1); opacity: 1; border-width: 3px; }
-                100% { transform: translate(-50%, -50%) scale(18); opacity: 0; border-width: 0.5px; }
-            }
-            @keyframes orgFlashFade {
-                0% { opacity: 1; transform: scale(0.5); }
-                100% { opacity: 0; transform: scale(2.5); }
-            }
-        `;
-        document.head.appendChild(styleSheet);
-    }
+    if (orgCards && orgCards.length > 0) {
+        orgCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const targetRole = card.getAttribute('data-org-role');
 
-    const unlockOrgCard = (role, x, y) => {
-        const card = document.getElementById(`org-card-${role}`);
-        if (!card || card.classList.contains('active')) return;
+                // Toggle active class on cards
+                orgCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
 
-        // Trigger glowing particle explosion
-        createGlowParticles(x, y);
+                // Toggle active class on detail panels
+                orgDetailContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === `org-detail-${targetRole}`) {
+                        content.classList.add('active');
+                    }
+                });
 
-        // Activate the card with a slight delay for dramatic effect
-        setTimeout(() => {
-            card.classList.remove('locked');
-            card.classList.add('active');
-
-            // Animate the connection line when both managers are unlocked
-            const opsCard = document.getElementById('org-card-ops');
-            const finCard = document.getElementById('org-card-fin');
-            const ceoCard = document.getElementById('org-card-ceo');
-            const connLine = document.getElementById('org-connection-line');
-
-            if (connLine && ceoCard && ceoCard.classList.contains('active')) {
-                connLine.style.stroke = 'rgba(212, 175, 55, 0.5)';
-                connLine.style.strokeDashoffset = '0';
-            }
-
-            // If all cards are active, add a glow pulse to the whole container
-            if (ceoCard?.classList.contains('active') && 
-                opsCard?.classList.contains('active') && 
-                finCard?.classList.contains('active')) {
-                const container = document.querySelector('.org-container');
-                if (container) {
-                    container.style.filter = 'drop-shadow(0 0 20px rgba(212, 175, 55, 0.2))';
-                    setTimeout(() => {
-                        container.style.filter = 'none';
-                    }, 1500);
-                }
-            }
-        }, 150);
-    };
-
-    orgUnlockBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const role = btn.getAttribute('data-role');
-            unlockOrgCard(role, e.clientX, e.clientY);
+                // Trigger small glow burst effect at card location
+                const rect = card.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                createOrgGlowParticles(x, y);
+            });
         });
-    });
+    }
 
     // ============================================
     // Slide 11: Closing Slide Sparkle Explosion & Slider Logic
