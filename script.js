@@ -22,10 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const progress = ((currentSlideIndex + 1) / totalSlides) * 100;
         progressBar.style.width = `${progress}%`;
 
-        // Check if current slide is the light-themed arsitektur slide
+        // Check if current slide is a light-themed slide
         const currentSlide = slides[currentSlideIndex];
         if (currentSlide) {
-            const isLightSlide = currentSlide.id === 'slide-arsitektur';
+            const lightSlides = ['slide-arsitektur', 'slide-1', 'slide-8', 'slide-finansial'];
+            const isLightSlide = lightSlides.includes(currentSlide.id);
             document.body.classList.toggle('light-slide-active', isLightSlide);
         }
 
@@ -788,6 +789,86 @@ document.addEventListener('DOMContentLoaded', () => {
                         avatarWrapper.style.transform = 'scale(1)';
                     }, 300);
                 }
+            });
+        });
+    }
+
+    // Slide 8 (Proyeksi Keuangan) Finance Tabs Interaction
+    const financeTabBtns = document.querySelectorAll('.finance-tab-btn');
+    const financeTabContents = document.querySelectorAll('.finance-tab-content');
+    const slide8El = document.getElementById('slide-8');
+    
+    if (financeTabBtns && financeTabBtns.length > 0) {
+        financeTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-finance-tab');
+                
+                // Toggle button active states
+                financeTabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Toggle content panels
+                financeTabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === `finance-content-${targetTab}`) {
+                        content.classList.add('active');
+                    }
+                });
+                
+                // Sync data attribute on slide for CSS breakdown mode
+                if (slide8El) {
+                    slide8El.setAttribute('data-active-finance-tab', targetTab);
+                }
+            });
+        });
+    }
+    // Slide Finansial: Health Tabs Interaction
+    const healthTabBtns = document.querySelectorAll('.health-tab-btn');
+    const healthTabContents = document.querySelectorAll('.health-tab-content');
+    const healthCards = document.querySelectorAll('.health-metric-card');
+    const slideFinansial = document.getElementById('slide-finansial');
+    
+    function activateHealthTab(targetTab) {
+        // Toggle button active states
+        healthTabBtns.forEach(b => b.classList.remove('active'));
+        healthTabBtns.forEach(b => {
+            if (b.getAttribute('data-health-tab') === targetTab) b.classList.add('active');
+        });
+        
+        // Toggle content panels
+        healthTabContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.id === `health-content-${targetTab}`) {
+                content.classList.add('active');
+            }
+        });
+        
+        // Toggle card active states
+        healthCards.forEach(card => {
+            card.classList.remove('active');
+            if (card.getAttribute('data-health-card') === targetTab) {
+                card.classList.add('active');
+            }
+        });
+        
+        // Sync data attribute
+        if (slideFinansial) {
+            slideFinansial.setAttribute('data-active-health-tab', targetTab);
+        }
+    }
+    
+    if (healthTabBtns && healthTabBtns.length > 0) {
+        healthTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                activateHealthTab(btn.getAttribute('data-health-tab'));
+            });
+        });
+    }
+    
+    if (healthCards && healthCards.length > 0) {
+        healthCards.forEach(card => {
+            card.addEventListener('click', () => {
+                activateHealthTab(card.getAttribute('data-health-card'));
             });
         });
     }
