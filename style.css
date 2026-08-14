@@ -4958,3 +4958,315 @@ body.light-slide-active .ambient-light {
     color: #8c763e;
     font-weight: 700;
 }
+
+/* ============================================= */
+/* Slide: Sintesis Kelayakan Bisnis (Bright Theme) */
+/* ============================================= */
+#slide-sintesis {
+    background-color: #FAF8F5 !important;
+    color: #1a3628;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+    z-index: 11;
+}
+
+#slide-sintesis .konsep-header .title {
+    color: #1a3628 !important;
+    font-size: 2.4rem;
+}
+
+#slide-sintesis .subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    color: #4a5d4e;
+    margin-top: 4px;
+}
+
+.synthesis-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Left Column: Venn Diagram Container */
+.venn-container {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    margin: 0 auto;
+}
+
+.venn-circle {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    user-select: none;
+    z-index: 2;
+}
+
+/* Circle Positions & Default Theme Overlays */
+.circle-market {
+    top: 20px;
+    left: 20px;
+    background: rgba(39, 174, 96, 0.12);
+    border: 2px dashed rgba(39, 174, 96, 0.35);
+}
+
+.circle-ops {
+    top: 20px;
+    right: 20px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 2px dashed rgba(212, 175, 55, 0.35);
+}
+
+.circle-finance {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(140, 118, 62, 0.12);
+    border: 2px dashed rgba(140, 118, 62, 0.35);
+}
+
+.venn-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a3628;
+    transition: color 0.3s ease;
+}
+
+/* Center Intersection Area */
+.venn-center {
+    position: absolute;
+    top: 130px;
+    left: 130px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(26, 54, 40, 0.08);
+    border: 2px dashed rgba(26, 54, 40, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.venn-center-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #8c763e;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+}
+
+/* Circle Hover Actions */
+.venn-circle:hover, .venn-center:hover {
+    transform: scale(1.04);
+    z-index: 6;
+}
+
+.circle-market:hover {
+    background: rgba(39, 174, 96, 0.18);
+    border-color: #27ae60;
+}
+
+.circle-ops:hover {
+    background: rgba(212, 175, 55, 0.18);
+    border-color: #d4af37;
+}
+
+.circle-finance:hover {
+    transform: translateX(-50%) scale(1.04);
+    background: rgba(140, 118, 62, 0.18);
+    border-color: #8c763e;
+}
+
+.venn-center:hover {
+    background: rgba(26, 54, 40, 0.15);
+    border-color: #1a3628;
+}
+
+/* Active Highlight States via Slide data-attributes */
+#slide-sintesis[data-active-synthesis="market"] .circle-market {
+    background: rgba(39, 174, 96, 0.25) !important;
+    border: 2.5px solid #27ae60 !important;
+    box-shadow: 0 10px 30px rgba(39, 174, 96, 0.2);
+    z-index: 7;
+}
+
+#slide-sintesis[data-active-synthesis="market"] .circle-market .venn-label {
+    color: #27ae60;
+}
+
+#slide-sintesis[data-active-synthesis="ops"] .circle-ops {
+    background: rgba(212, 175, 55, 0.25) !important;
+    border: 2.5px solid #d4af37 !important;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    z-index: 7;
+}
+
+#slide-sintesis[data-active-synthesis="ops"] .circle-ops .venn-label {
+    color: #b8860b;
+}
+
+#slide-sintesis[data-active-synthesis="finance"] .circle-finance {
+    background: rgba(140, 118, 62, 0.25) !important;
+    border: 2.5px solid #8c763e !important;
+    box-shadow: 0 10px 30px rgba(140, 118, 62, 0.2);
+    transform: translateX(-50%) scale(1.02);
+    z-index: 7;
+}
+
+#slide-sintesis[data-active-synthesis="finance"] .circle-finance .venn-label {
+    color: #8c763e;
+}
+
+#slide-sintesis[data-active-synthesis="center"] .venn-center {
+    background: rgba(26, 54, 40, 0.15) !important;
+    border: 2.5px solid #1a3628 !important;
+    box-shadow: 0 10px 30px rgba(26, 54, 40, 0.15);
+    transform: scale(1.05);
+    z-index: 8;
+}
+
+#slide-sintesis[data-active-synthesis="center"] .venn-center-label {
+    color: #1a3628;
+    font-size: 0.82rem;
+}
+
+/* Right Column: Explanatory Content Cards */
+.synthesis-details-panel {
+    position: relative;
+    background: #FFFFFF;
+    border: 2px solid rgba(26, 54, 40, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 12px 36px rgba(26, 54, 40, 0.04);
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.synthesis-content-card {
+    display: none;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.synthesis-content-card.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(26, 54, 40, 0.06);
+}
+
+.scc-icon {
+    font-size: 1.8rem;
+}
+
+.scc-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Custom Header Colors */
+.text-green h3 { color: #27ae60; }
+.text-gold h3 { color: #b8860b; }
+.text-bronze h3 { color: #8c763e; }
+.text-primary h3 { color: #1a3628; }
+
+.scc-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #4a5d4e;
+    margin: 0 0 18px 0;
+}
+
+.scc-text strong {
+    color: #1a3628;
+    font-weight: 600;
+}
+
+/* Bullet Points */
+.scc-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scc-bullet {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    color: #4a5d4e;
+    padding: 8px 14px;
+    background: rgba(26, 54, 40, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid rgba(26, 54, 40, 0.15);
+}
+
+.text-green .scc-bullet { border-left-color: #27ae60; background: rgba(39, 174, 96, 0.03); }
+.text-gold .scc-bullet { border-left-color: #d4af37; background: rgba(212, 175, 55, 0.03); }
+.text-bronze .scc-bullet { border-left-color: #8c763e; background: rgba(140, 118, 62, 0.03); }
+
+/* Badges for Synergy */
+.scc-badge-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.scc-badge {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(26, 54, 40, 0.06);
+    color: #1a3628;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.scc-badge.gold {
+    background: rgba(212, 175, 55, 0.1);
+    color: #b8860b;
+}
+
+.scc-badge.green {
+    background: rgba(39, 174, 96, 0.1);
+    color: #27ae60;
+}

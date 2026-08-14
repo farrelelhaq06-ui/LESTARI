@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check if current slide is a light-themed slide
         const currentSlide = slides[currentSlideIndex];
         if (currentSlide) {
-            const lightSlides = ['slide-arsitektur', 'slide-1', 'slide-8', 'slide-finansial'];
+            const lightSlides = ['slide-arsitektur', 'slide-1', 'slide-8', 'slide-finansial', 'slide-sintesis'];
             const isLightSlide = lightSlides.includes(currentSlide.id);
             document.body.classList.toggle('light-slide-active', isLightSlide);
         }
@@ -803,6 +803,32 @@ document.addEventListener('DOMContentLoaded', () => {
         healthCards.forEach(card => {
             card.addEventListener('click', () => {
                 activateHealthTab(card.getAttribute('data-health-card'));
+            });
+        });
+    }
+
+    // Slide Sintesis: Venn Diagram Interaction
+    const vennCircles = document.querySelectorAll('.venn-circle, .venn-center');
+    const synthesisCards = document.querySelectorAll('.synthesis-content-card');
+    const slideSintesis = document.getElementById('slide-sintesis');
+
+    if (vennCircles && vennCircles.length > 0) {
+        vennCircles.forEach(circle => {
+            circle.addEventListener('click', () => {
+                const targetTab = circle.getAttribute('data-synthesis-tab');
+
+                // Toggle active class on synthesis content cards
+                synthesisCards.forEach(card => {
+                    card.classList.remove('active');
+                    if (card.id === `synthesis-content-${targetTab}`) {
+                        card.classList.add('active');
+                    }
+                });
+
+                // Sync data attribute on slide
+                if (slideSintesis) {
+                    slideSintesis.setAttribute('data-active-synthesis', targetTab);
+                }
             });
         });
     }
