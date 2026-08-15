@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check if current slide is a light-themed slide
         const currentSlide = slides[currentSlideIndex];
         if (currentSlide) {
-            const lightSlides = ['slide-arsitektur', 'slide-1', 'slide-8', 'slide-finansial', 'slide-sintesis'];
+            const lightSlides = ['slide-arsitektur', 'slide-1', 'slide-8', 'slide-finansial', 'slide-sintesis', 'slide-bmc'];
             const isLightSlide = lightSlides.includes(currentSlide.id);
             document.body.classList.toggle('light-slide-active', isLightSlide);
         }

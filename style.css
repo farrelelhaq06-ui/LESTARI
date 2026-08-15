@@ -5288,3 +5288,209 @@ body.light-slide-active .ambient-light {
     display: inline-block;
 }
 
+/* ============================================= */
+/* Slide: Business Model Canvas (Light Theme)    */
+/* ============================================= */
+#slide-bmc {
+    background-color: #FAF8F5 !important;
+    color: #1a3628;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5%;
+}
+
+#slide-bmc .konsep-header .title {
+    color: #1a3628 !important;
+}
+
+.bmc-slide-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+/* BMC Grid: Classic 9-block layout */
+.bmc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+    grid-template-areas:
+        "partners activities value relationships segments"
+        "partners activities value channels segments"
+        "resources resources costs revenue revenue";
+}
+
+.bmc-partners      { grid-area: partners; }
+.bmc-activities    { grid-area: activities; }
+.bmc-value         { grid-area: value; }
+.bmc-relationships { grid-area: relationships; }
+.bmc-segments      { grid-area: segments; }
+.bmc-resources     { grid-area: resources; }
+.bmc-channels      { grid-area: channels; }
+.bmc-costs         { grid-area: costs; }
+.bmc-revenue       { grid-area: revenue; }
+
+/* BMC Card Base */
+.bmc-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(26, 54, 40, 0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 8px rgba(26, 54, 40, 0.04);
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+/* Staggered entrance animation when slide is active */
+.slide.active .bmc-card {
+    animation: bmcCardIn 0.5s ease forwards;
+}
+
+.slide.active .bmc-card:nth-child(1) { animation-delay: 0.05s; }
+.slide.active .bmc-card:nth-child(2) { animation-delay: 0.1s; }
+.slide.active .bmc-card:nth-child(3) { animation-delay: 0.15s; }
+.slide.active .bmc-card:nth-child(4) { animation-delay: 0.2s; }
+.slide.active .bmc-card:nth-child(5) { animation-delay: 0.25s; }
+.slide.active .bmc-card:nth-child(6) { animation-delay: 0.3s; }
+.slide.active .bmc-card:nth-child(7) { animation-delay: 0.35s; }
+.slide.active .bmc-card:nth-child(8) { animation-delay: 0.4s; }
+.slide.active .bmc-card:nth-child(9) { animation-delay: 0.45s; }
+
+@keyframes bmcCardIn {
+    0% { opacity: 0; transform: translateY(16px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.bmc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(26, 54, 40, 0.08);
+    border-color: rgba(26, 54, 40, 0.15);
+}
+
+/* Emphasis cards (Value Proposition & Customer Segments) */
+.bmc-card.bmc-emphasis {
+    border-left: 3px solid #8c763e;
+    background: linear-gradient(135deg, #FFFFFF 0%, rgba(140, 118, 62, 0.04) 100%);
+}
+
+.bmc-card.bmc-emphasis:hover {
+    border-color: #8c763e;
+    box-shadow: 0 8px 24px rgba(140, 118, 62, 0.12);
+}
+
+.bmc-card.bmc-emphasis .bmc-card-header h3 {
+    color: #8c763e;
+}
+
+/* Card Header */
+.bmc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(26, 54, 40, 0.06);
+}
+
+.bmc-icon {
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.bmc-card-header h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1a3628;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: 0;
+}
+
+/* Bullet List */
+.bmc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bmc-list li {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    color: #4a5d4e;
+    line-height: 1.35;
+    position: relative;
+    padding-left: 12px;
+}
+
+.bmc-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #8c763e;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.bmc-list-compact li {
+    font-size: 0.68rem;
+}
+
+/* Flow Strip */
+.bmc-flow-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.bmc-flow-node {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #4a5d4e;
+    padding: 4px 10px;
+    border-radius: 16px;
+    background: rgba(26, 54, 40, 0.04);
+    border: 1px solid rgba(26, 54, 40, 0.08);
+    transition: all 0.3s ease;
+}
+
+.bmc-flow-node.highlight {
+    background: rgba(140, 118, 62, 0.1);
+    border-color: rgba(140, 118, 62, 0.3);
+    color: #8c763e;
+    font-weight: 700;
+}
+
+.bmc-flow-arrow {
+    font-size: 0.85rem;
+    color: #8c763e;
+    font-weight: 700;
+}
+
+/* Closing Quote */
+.bmc-closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: #4a5d4e;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+    opacity: 0.8;
+}
