@@ -5348,6 +5348,7 @@ body.light-slide-active .ambient-light {
     box-shadow: 0 2px 8px rgba(26, 54, 40, 0.04);
     opacity: 0;
     transform: translateY(16px);
+    cursor: pointer;
 }
 
 /* Staggered entrance animation when slide is active */
@@ -5376,6 +5377,15 @@ body.light-slide-active .ambient-light {
     border-color: rgba(26, 54, 40, 0.15);
 }
 
+.bmc-card.active {
+    transform: translateY(-6px) scale(1.025);
+    border-color: #8c763e !important;
+    border-width: 1.5px;
+    box-shadow: 0 10px 25px rgba(140, 118, 62, 0.22) !important;
+    background: linear-gradient(135deg, #FFFFFF 0%, rgba(140, 118, 62, 0.02) 100%) !important;
+    z-index: 10;
+}
+
 /* Emphasis cards (Value Proposition & Customer Segments) */
 .bmc-card.bmc-emphasis {
     border-left: 3px solid #8c763e;
@@ -5385,6 +5395,10 @@ body.light-slide-active .ambient-light {
 .bmc-card.bmc-emphasis:hover {
     border-color: #8c763e;
     box-shadow: 0 8px 24px rgba(140, 118, 62, 0.12);
+}
+
+.bmc-card.bmc-emphasis.active {
+    border-left-width: 5px;
 }
 
 .bmc-card.bmc-emphasis .bmc-card-header h3 {
@@ -5467,7 +5481,15 @@ body.light-slide-active .ambient-light {
     border-radius: 16px;
     background: rgba(26, 54, 40, 0.04);
     border: 1px solid rgba(26, 54, 40, 0.08);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.bmc-flow-node:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: rgba(140, 118, 62, 0.08);
+    border-color: #8c763e;
+    color: #8c763e;
 }
 
 .bmc-flow-node.highlight {
@@ -5475,6 +5497,14 @@ body.light-slide-active .ambient-light {
     border-color: rgba(140, 118, 62, 0.3);
     color: #8c763e;
     font-weight: 700;
+}
+
+.bmc-flow-node.active-flow {
+    background: #8c763e !important;
+    border-color: #8c763e !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(140, 118, 62, 0.25);
+    transform: translateY(-3px) scale(1.08);
 }
 
 .bmc-flow-arrow {

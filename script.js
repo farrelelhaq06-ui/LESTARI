@@ -833,6 +833,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Business Model Canvas Card & Flow Interactions
+    const bmcCards = document.querySelectorAll('.bmc-card');
+    const bmcFlowNodes = document.querySelectorAll('.bmc-flow-node');
+
+    const activateBmcCard = (target, clientX, clientY) => {
+        // Toggle active class on cards
+        bmcCards.forEach(card => {
+            if (card.getAttribute('data-bmc') === target) {
+                card.classList.toggle('active');
+                
+                // If it is active, spawn particles at click/card location
+                if (card.classList.contains('active')) {
+                    let px = clientX;
+                    let py = clientY;
+                    if (!px || !py) {
+                        const rect = card.getBoundingClientRect();
+                        px = rect.left + rect.width / 2;
+                        py = rect.top + rect.height / 2;
+                    }
+                    if (typeof createOrgGlowParticles === 'function') {
+                        createOrgGlowParticles(px, py);
+                    }
+                }
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
+        // Toggle active-flow class on bottom flow strip
+        bmcFlowNodes.forEach(node => {
+            if (node.getAttribute('data-flow-target') === target) {
+                // If card is active, make flow node active
+                const matchingCard = document.querySelector(`.bmc-card[data-bmc="${target}"]`);
+                if (matchingCard && matchingCard.classList.contains('active')) {
+                    node.classList.add('active-flow');
+                } else {
+                    node.classList.remove('active-flow');
+                }
+            } else {
+                node.classList.remove('active-flow');
+            }
+        });
+    };
+
+    if (bmcCards && bmcCards.length > 0) {
+        bmcCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const target = card.getAttribute('data-bmc');
+                activateBmcCard(target, e.clientX, e.clientY);
+            });
+        });
+    }
+
+    if (bmcFlowNodes && bmcFlowNodes.length > 0) {
+        bmcFlowNodes.forEach(node => {
+            node.addEventListener('click', (e) => {
+                const target = node.getAttribute('data-flow-target');
+                activateBmcCard(target, e.clientX, e.clientY);
+            });
+        });
+    }
+
     // Init
     updateUI();
 });
