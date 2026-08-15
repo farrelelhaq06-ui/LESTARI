@@ -953,6 +953,32 @@
                             </div>
                             <p class="hmc-desc">Payback Period: 3,61 Bulan</p>
                         </div>
+                        
+                        <!-- NPV Card -->
+                        <div class="health-metric-card" data-health-card="npv">
+                            <div class="hmc-header">Net Present Value (NPV)</div>
+                            <div class="hmc-gauge-wrapper">
+                                <div class="gauge-arrow-icon">📊</div>
+                                <div class="gauge-label-group">
+                                    <span class="gauge-main-label">NPV:</span>
+                                    <span class="gauge-main-value npv-value">Rp582,78 Jt</span>
+                                </div>
+                            </div>
+                            <p class="hmc-desc"><span class="npv-positive-badge">✅ NPV Positif</span> — Investasi menghasilkan nilai tambah.</p>
+                        </div>
+                        
+                        <!-- IRR Card -->
+                        <div class="health-metric-card" data-health-card="irr">
+                            <div class="hmc-header">Internal Rate of Return</div>
+                            <div class="hmc-gauge-wrapper">
+                                <div class="gauge-speedometer">🚀</div>
+                                <div class="gauge-label-group">
+                                    <span class="gauge-main-label">IRR:</span>
+                                    <span class="gauge-main-value irr-value">354,01%</span>
+                                </div>
+                            </div>
+                            <p class="hmc-desc">Jauh di atas discount rate 10%.</p>
+                        </div>
                     </div>
                     
                     <!-- Right: Interactive Sidebar Detail Panel -->
@@ -966,6 +992,12 @@
                             </button>
                             <button class="health-tab-btn" data-health-tab="roi">
                                 <span class="htb-icon">🏆</span> ROI Detail
+                            </button>
+                            <button class="health-tab-btn" data-health-tab="npv">
+                                <span class="htb-icon">📊</span> NPV Analysis
+                            </button>
+                            <button class="health-tab-btn" data-health-tab="irr">
+                                <span class="htb-icon">🚀</span> IRR Analysis
                             </button>
                         </div>
                         
@@ -1040,6 +1072,93 @@
                                     </div>
                                 </div>
                                 <p class="hd-insight">💡 Investasi Rp 60 juta akan kembali dalam waktu 3,61 bulan — bisnis langsung menghasilkan laba operasional positif.</p>
+                            </div>
+                            
+                            <!-- NPV Detail -->
+                            <div class="health-tab-content" id="health-content-npv">
+                                <h3>Net Present Value (NPV)</h3>
+                                <div class="health-detail-rows">
+                                    <div class="hd-row">
+                                        <span class="hd-label">NPV (3 Tahun)</span>
+                                        <span class="hd-value gold">Rp 582.780.000</span>
+                                    </div>
+                                    <div class="hd-row">
+                                        <span class="hd-label">Investasi Awal</span>
+                                        <span class="hd-value">Rp 60.000.000</span>
+                                    </div>
+                                    <div class="hd-row">
+                                        <span class="hd-label">Discount Rate</span>
+                                        <span class="hd-value">10%</span>
+                                    </div>
+                                    <div class="hd-row">
+                                        <span class="hd-label">Periode Proyeksi</span>
+                                        <span class="hd-value green">3 Tahun</span>
+                                    </div>
+                                </div>
+                                <p class="hd-insight">💡 NPV positif menunjukkan investasi menghasilkan nilai tambah yang signifikan melebihi biaya modal.</p>
+                                
+                                <!-- Accordion: Dasar Perhitungan -->
+                                <div class="npv-accordion">
+                                    <button class="npv-accordion-btn" id="npv-accordion-toggle">
+                                        📐 Dasar Perhitungan <span class="accordion-chevron">▼</span>
+                                    </button>
+                                    <div class="npv-accordion-content" id="npv-accordion-content">
+                                        <div class="health-detail-rows" style="margin-top: 8px;">
+                                            <div class="hd-row">
+                                                <span class="hd-label">Cash Flow Tahun 1</span>
+                                                <span class="hd-value">Rp 199.440.000</span>
+                                            </div>
+                                            <div class="hd-row">
+                                                <span class="hd-label">Cash Flow Tahun 2</span>
+                                                <span class="hd-value">Rp 258.648.000</span>
+                                            </div>
+                                            <div class="hd-row">
+                                                <span class="hd-label">Cash Flow Tahun 3</span>
+                                                <span class="hd-value">Rp 329.702.400</span>
+                                            </div>
+                                        </div>
+                                        <div class="npv-formula-box">
+                                            <code>NPV = Σ [CFt / (1+r)^t] − Investasi Awal</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- IRR Detail -->
+                            <div class="health-tab-content" id="health-content-irr">
+                                <h3>Internal Rate of Return (IRR)</h3>
+                                <div class="health-detail-rows">
+                                    <div class="hd-row">
+                                        <span class="hd-label">IRR Proyek</span>
+                                        <span class="hd-value gold">354,01%</span>
+                                    </div>
+                                    <div class="hd-row">
+                                        <span class="hd-label">Discount Rate</span>
+                                        <span class="hd-value">10%</span>
+                                    </div>
+                                    <div class="hd-row">
+                                        <span class="hd-label">Selisih (IRR − DR)</span>
+                                        <span class="hd-value green">+344,01%</span>
+                                    </div>
+                                    <div class="hd-row">
+                                        <span class="hd-label">Kesimpulan</span>
+                                        <span class="hd-value green">LAYAK ✅</span>
+                                    </div>
+                                </div>
+                                <p class="hd-insight">💡 IRR jauh melampaui discount rate 10% — proyek menunjukkan kelayakan finansial yang sangat kuat berdasarkan asumsi arus kas yang digunakan.</p>
+                                
+                                <!-- Accordion: Dasar Perhitungan IRR -->
+                                <div class="npv-accordion">
+                                    <button class="npv-accordion-btn" id="irr-accordion-toggle">
+                                        📐 Dasar Perhitungan <span class="accordion-chevron">▼</span>
+                                    </button>
+                                    <div class="npv-accordion-content" id="irr-accordion-content">
+                                        <div class="npv-formula-box" style="margin-top: 8px;">
+                                            <code>IRR = tingkat diskonto ketika NPV = 0</code>
+                                        </div>
+                                        <p class="hd-insight" style="margin-top: 8px;">Dengan arus kas Rp199,4jt → Rp258,6jt → Rp329,7jt terhadap investasi Rp60jt, NPV=0 tercapai pada tingkat diskonto 354,01%.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

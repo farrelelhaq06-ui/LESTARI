@@ -895,6 +895,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // NPV & IRR Accordion Toggle
+    document.querySelectorAll('.npv-accordion-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const contentId = btn.id.replace('-toggle', '-content');
+            const content = document.getElementById(contentId);
+            if (btn && content) {
+                btn.classList.toggle('open');
+                content.classList.toggle('open');
+            }
+        });
+    });
+
     // Init
     updateUI();
 });

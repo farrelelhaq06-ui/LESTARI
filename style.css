@@ -5524,3 +5524,109 @@ body.light-slide-active .ambient-light {
     line-height: 1.5;
     opacity: 0.8;
 }
+
+/* ============================================= */
+/* NPV & IRR Indicator Styles                    */
+/* ============================================= */
+
+/* Emphasis pulse for NPV & IRR big numbers */
+.npv-value {
+    color: #27ae60 !important;
+    animation: valuePulse 1.4s ease-in-out 2;
+    display: inline-block;
+}
+
+.irr-value {
+    color: #e67e22 !important;
+    animation: valuePulse 1.4s ease-in-out 2;
+    display: inline-block;
+}
+
+/* NPV Positive Badge */
+.npv-positive-badge {
+    display: inline-block;
+    background: rgba(39, 174, 96, 0.1);
+    color: #27ae60;
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(39, 174, 96, 0.2);
+}
+
+/* Accordion */
+.npv-accordion {
+    margin-top: 12px;
+}
+
+.npv-accordion-btn {
+    width: 100%;
+    background: rgba(140, 118, 62, 0.06);
+    border: 1px solid rgba(140, 118, 62, 0.15);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #8c763e;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.npv-accordion-btn:hover {
+    background: rgba(140, 118, 62, 0.12);
+    border-color: rgba(140, 118, 62, 0.3);
+}
+
+.npv-accordion-btn.open {
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+    background: rgba(140, 118, 62, 0.1);
+}
+
+.accordion-chevron {
+    font-size: 0.65rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.npv-accordion-btn.open .accordion-chevron {
+    transform: rotate(180deg);
+}
+
+.npv-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.3s ease;
+    background: rgba(140, 118, 62, 0.03);
+    border: 1px solid rgba(140, 118, 62, 0.15);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 0 14px;
+}
+
+.npv-accordion-content.open {
+    max-height: 300px;
+    padding: 10px 14px 14px;
+}
+
+/* Formula Box */
+.npv-formula-box {
+    margin-top: 10px;
+    background: rgba(26, 54, 40, 0.04);
+    border: 1px dashed rgba(26, 54, 40, 0.15);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+}
+
+.npv-formula-box code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: #1a3628;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
